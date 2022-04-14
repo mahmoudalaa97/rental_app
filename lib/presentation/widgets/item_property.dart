@@ -38,13 +38,31 @@ class ItemProperty extends StatelessWidget {
                 property.name,
                 style: _textStyle,
               ),
-              const SizedBox(height: 12),
-              Text(
-                property.location,
-                style: _textStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      property.location,
+                      style: _textStyle.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.black.withOpacity(.7),
+                    ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    child: Text(
+                      "\$${property.pricing}/${property.per}",
+                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                    ),
+                  )
+                ],
               ),
             ],
           ),
@@ -56,3 +74,4 @@ class ItemProperty extends StatelessWidget {
   TextStyle get _textStyle => const TextStyle(
       color: Colors.white, fontSize: 26, fontWeight: FontWeight.w900);
 }
+

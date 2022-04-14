@@ -28,7 +28,6 @@ class DummyRepositoryImpl extends Repository {
         name: "Deluxe Office Rent",
         location: "Uyo, Nigeria",
         type: "office",
-        description: "Description",
         pricing: 1200,
         per: "Weekly",
         id: 0,
@@ -39,7 +38,6 @@ class DummyRepositoryImpl extends Repository {
           name: "Rose Premium Estate",
           location: "Abuja, Nigeria",
           type: "duplex",
-          description: "Description",
           pricing: 120200,
           per: "Yearly",
           id: 1,
@@ -47,13 +45,5 @@ class DummyRepositoryImpl extends Repository {
               "https://i.pinimg.com/736x/17/83/96/17839628856abe09d225fdf1b9682240.jpg")
     ];
   }
-
-  @override
-  Future<Either<String, String>> rent() async {
-    await Future.delayed(const Duration(milliseconds: 1500));
-
-    if (failure) return const Left("An error occurred");
-
-    return const Right("Successful");
-  }
 }
+
