@@ -98,7 +98,9 @@ class _SearchBar extends StatelessWidget {
         onChanged: (newText) {
           dataController.fetch(param: newText);
         },
+        
         decoration: InputDecoration(
+          hintText: "Search..",
           prefixIcon: const Icon(Icons.search),
           fillColor: Colors.grey[100],
           filled: true,
