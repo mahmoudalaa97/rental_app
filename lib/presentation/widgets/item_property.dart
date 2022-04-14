@@ -74,3 +74,4 @@ class ItemProperty extends StatelessWidget {
   TextStyle get _textStyle => const TextStyle(
       color: Colors.white, fontSize: 26, fontWeight: FontWeight.w900);
 }
+

@@ -46,3 +46,4 @@ class DummyRepositoryImpl extends Repository {
     ];
   }
 }
+

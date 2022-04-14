@@ -43,3 +43,4 @@ class Property {
         image.hashCode;
   }
 }
+
