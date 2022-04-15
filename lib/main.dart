@@ -1,11 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:rental_app/data/repository_impl.dart';
-import 'package:rental_app/presentation/data_controller.dart';
-import 'package:rental_app/presentation/repository_provider.dart';
-import 'package:rental_app/presentation/widgets/item_property.dart';
+import 'data/repository_impl.dart';
+import 'firebase_options.dart';
+import 'presentation/data_controller.dart';
+import 'presentation/repository_provider.dart';
+import 'presentation/widgets/item_property.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -98,9 +103,7 @@ class _SearchBar extends StatelessWidget {
         onChanged: (newText) {
           dataController.fetch(param: newText);
         },
-        
         decoration: InputDecoration(
-          hintText: "Search..",
           prefixIcon: const Icon(Icons.search),
           fillColor: Colors.grey[100],
           filled: true,
