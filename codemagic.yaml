@@ -1,21 +1,48 @@
 workflows:
-  flutter-test:
-    name: Flutter Test
+  android-workflow:
+    name: Android Workflow
+    max_build_duration: 120
     environment:
       groups:
-        - codecov_credentials
+        - codecov_credentials # <-- Codecov token
+      vars:
+        CODE_COVERAGE_TARGET: 90 # <-- Expected code coverage rate
+      flutter: stable
+      xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
+      cocoapods: default
     scripts:
-      - name: Create coverage report
-        script: | 
+      - name: Set up local.properties
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      - name: Flutter analyze
+        script: |
+          flutter analyze
+      - name: Flutter unit tests
+        script: |
+          flutter test
+        ignore_failure: true
+      - name: Collecting code coverage and storing in a location
+        script: |
           HOMEBREW_NO_AUTO_UPDATE=1 brew install lcov
           mkdir -p test-results 
-          flutter test --coverage --machine > test-results/flutter.json  
-          
-          code_coverage=$(lcov --list $FCI_BUILD_DIR/coverage/lcov.info | sed -n "s/.*Total:|\(.*\)%.*/\1/p")
-          
+          flutter test \
+            --coverage \
+            --machine \
+            > test-results/flutter.json
+
+          code_coverage=$(lcov --list $CM_BUILD_DIR/coverage/lcov.info | sed -n "s/.*Total:|\(.*\)%.*/\1/p")          
           echo "Code Coverage: ${code_coverage}% "
           if (( $(echo "$code_coverage < $CODE_COVERAGE_TARGET" | bc) ))
             then { echo "code coverage is less than expected" && exit 1; }
-          fi  
-    
-          test_report: test-results/flutter.json    
+          fi 
+        test_report: test-results/flutter.json
+      - name: Codecov upload
+        script: |
+          #!/bin/bash
+          curl -Os https://uploader.codecov.io/latest/macos/codecov
+          chmod +x codecov
+          ./codecov -t ${CODECOV_TOKEN} -f "test-results/flutter.json"
+      
