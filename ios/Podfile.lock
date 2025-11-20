@@ -80,14 +80,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
-  firebase_core: cdef02fcf55872191eb0568d4c31a7a700e38582
-  firebase_remote_config: c038c6badd049a19f6f6be77b253a7680ece5fa9
+  firebase_core: dcf21121cf5e80200c6b451473508e04d2280b2d
+  firebase_remote_config: 36666a211aa7a20c8976abf001aa8d91cadb2605
   FirebaseABTesting: 10cbce8db9985ae2e3847ea44e9947dd18f94e10
   FirebaseCore: b84a44ee7ba999e0f9f76d198a9c7f60a797b848
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
   FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
   FirebaseRemoteConfig: a5d9188d8f57f602636f111eca6460ebe32b9b71
-  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -95,4 +95,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: fe0e1ee7f3d1f7d00b11b474b62dd62134535aea
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.16.2

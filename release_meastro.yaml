@@ -1,0 +1,21 @@
+appId: com.jasper.rentals.rentalApp
+---
+- launchApp:
+    clearState: true
+- scrollUntilVisible:
+    direction: RIGHT
+    element:
+      text: |-
+        Rose Premium Estate
+        Rose Premium Estate
+        Abuja, Nigeria
+        $120200.0/Yearly
+       
+- scrollUntilVisible:
+    direction: RIGHT
+    element:
+      text: |-
+        Luxury Apartment
+        Luxury Apartment
+        Lagos, Nigeria
+        $120200.0/Monthly

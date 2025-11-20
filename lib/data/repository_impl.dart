@@ -42,8 +42,16 @@ class DummyRepositoryImpl extends Repository {
           per: "Yearly",
           id: 1,
           image:
-              "https://i.pinimg.com/736x/17/83/96/17839628856abe09d225fdf1b9682240.jpg")
+              "https://i.pinimg.com/736x/17/83/96/17839628856abe09d225fdf1b9682240.jpg"),
+      Property(
+          name: "Luxury Apartment",
+          location: "Lagos, Nigeria",
+          type: "duplex",
+          pricing: 120200,
+          per: "Monthly",
+          id: 2,
+          image:
+              "https://media.istockphoto.com/id/1322277517/photo/bright-and-modern-apartment-with-a-view.jpg?s=612x612&w=0&k=20&c=e3m39Yie_uvKVAkqEtTm3TMIjx7z_8oVJQ1c1s3Q07A=")
     ];
   }
 }
-

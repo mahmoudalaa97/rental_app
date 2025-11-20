@@ -73,7 +73,6 @@ class _MyAppState extends State<MyApp> {
         title: 'Rental App',
         theme: ThemeData(
           scaffoldBackgroundColor: ColorHex.fromHex(scaffoldColor),
-          backgroundColor: ColorHex.fromHex(scaffoldColor),
           inputDecorationTheme: InputDecorationTheme(
             fillColor: ColorHex.fromHex(textFieldColor),
             filled: true,

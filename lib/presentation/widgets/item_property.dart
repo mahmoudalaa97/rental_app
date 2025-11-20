@@ -13,7 +13,7 @@ class ItemProperty extends StatelessWidget {
     final remoteConfig = FirebaseRemoteConfig.instance;
     final shadowColor =
         ColorHex.fromHex(remoteConfig.getString('shadow_color'));
-        
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
       decoration: BoxDecoration(
@@ -40,9 +40,12 @@ class ItemProperty extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                property.name,
-                style: _textStyle,
+              Semantics(
+                label: property.name,
+                child: Text(
+                  property.name,
+                  style: _textStyle,
+                ),
               ),
               const SizedBox(height: 8),
               Row(
